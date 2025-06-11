@@ -83,19 +83,28 @@
       </div>
     </div>
 
-    <!-- FAB Buttons -->
-    <div class="fab-group-horizontal" [@fabAnimation]>
-      <button mat-fab type="button" class="fab-btn fab-reset" (click)="onReset()" matTooltip="Reset">
-        <mat-icon>refresh</mat-icon>
-      </button>
 
-      <button mat-fab type="submit" class="fab-btn fab-save" matTooltip="Save">
-        <mat-icon>save</mat-icon>
-      </button>
+<div class="fab-form-actions">
+  <button mat-raised-button class="fab-btn fab-reset" (click)="onReset()" matTooltip="Reset">
+    <mat-icon>refresh</mat-icon>
+    Reset
+  </button>
 
-      <button mat-fab type="button" class="fab-btn fab-exit" (click)="onExit()" matTooltip="Exit">
-        <mat-icon>exit_to_app</mat-icon>
-      </button>
-    </div>
+  <button mat-raised-button class="fab-btn fab-save" type="submit" matTooltip="Save">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+
+  <button mat-raised-button class="fab-btn fab-exit" (click)="onExit()" matTooltip="Exit">
+    <mat-icon>exit_to_app</mat-icon>
+    Exit
+  </button>
+</div>
+
+    
+
+
+    
   </form>
+
 </div>
