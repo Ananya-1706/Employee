@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +21,6 @@ export const appConfig: ApplicationConfig = {
       MatButtonModule,
       MatIconModule,
       MatTooltipModule
-    ),  provideAnimationsAsync()
+    ), provideAnimationsAsync()
   ]
 };
