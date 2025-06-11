@@ -19,7 +19,8 @@
 }
 
 .fab-reset {
-  background: linear-gradient(45deg, #ff6f61, #ff9a76);
+
+  background: linear-gradient(45deg, #667eea, #764ba2);
 }
 
 .fab-save {
@@ -27,5 +28,5 @@
 }
 
 .fab-exit {
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, #ff6f61, #ff9a76);
 }
