@@ -1,14 +1,27 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-employee',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.css'],
+  animations: [
+    trigger('fabAnimation', [
+      transition(':enter', [
+        query('.fab-btn', [
+          style({ opacity: 0, transform: 'scale(0.8)' }),
+          stagger(100, [
+            animate('300ms ease-out', style({ opacity: 1, transform: 'scale(1)' }))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
+
 export class EmployeeComponent {
   employeeForm: FormGroup;
   departments = ['IT', 'HR', 'Finance', 'Operations', 'Marketing'];
@@ -33,4 +46,13 @@ export class EmployeeComponent {
       this.employeeForm.markAllAsTouched();
     }
   }
+   onReset() {
+  this.employeeForm.reset();
 }
+
+    onExit() {
+  alert('Exit clicked');
+  
+}
+
+  }
