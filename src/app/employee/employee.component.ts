@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @Component({
-  selector: 'app-employee',
-  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatIconModule, MatButtonModule, MatTooltipModule],
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
   animations: [
@@ -22,6 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
   ]
 })
 
+
+
 export class EmployeeComponent {
   employeeForm: FormGroup;
   departments = ['IT', 'HR', 'Finance', 'Operations', 'Marketing'];
@@ -32,7 +37,9 @@ export class EmployeeComponent {
       employeeName: ['', Validators.required],
       employeeEmail: ['', [Validators.required, Validators.email]],
       projectManagerName: ['', Validators.required],
+      projectManagerEmail: ['', [Validators.required, Validators.email]],
       projectStartDate: ['', Validators.required],
+      projectEndDate: ['', Validators.required],
       department: ['', Validators.required],
       employmentType: ['', Validators.required]
     });
