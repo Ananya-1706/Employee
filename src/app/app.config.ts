@@ -20,6 +20,6 @@ export const appConfig: ApplicationConfig = {
       MatButtonModule,
       MatIconModule,
       MatTooltipModule
-    )
+    ),  provideAnimationsAsync()
   ]
 };
