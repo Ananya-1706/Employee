@@ -1,0 +1,110 @@
+<div class="employee-form-container">
+  <h1>Employee Maintenance Details</h1>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+    
+    <!-- Employee Name -->
+    <div class="form-group">
+      <label for="employeeName">Employee Name</label>
+      <input type="text" id="employeeName" formControlName="employeeName" placeholder="Enter full name">
+      <div *ngIf="employeeForm.get('employeeName')?.invalid && employeeForm.get('employeeName')?.touched" class="error-message">
+        Employee name is required
+      </div>
+    </div>
+
+    <!-- Employee Email -->
+    <div class="form-group">
+      <label for="employeeEmail">Employee Email</label>
+      <input type="email" id="employeeEmail" formControlName="employeeEmail" placeholder="example@company.com">
+      <div *ngIf="employeeForm.get('employeeEmail')?.invalid && employeeForm.get('employeeEmail')?.touched" class="error-message">
+        Valid email is required
+      </div>
+    </div>
+
+    <!-- Project Manager Name -->
+    <div class="form-group">
+      <label for="projectManagerName">Project Manager Name</label>
+      <input type="text" id="projectManagerName" formControlName="projectManagerName" placeholder="Manager's full name">
+      <div *ngIf="employeeForm.get('projectManagerName')?.invalid && employeeForm.get('projectManagerName')?.touched" class="error-message">
+        Project manager name is required
+      </div>
+    </div>
+
+    <!-- Project Manager Email -->
+    <div class="form-group">
+      <label for="projectManagerEmail">Project Manager Email</label>
+      <input type="email" id="projectManagerEmail" formControlName="projectManagerEmail" placeholder="manager@example.com">
+      <div *ngIf="employeeForm.get('projectManagerEmail')?.invalid && employeeForm.get('projectManagerEmail')?.touched" class="error-message">
+        Valid manager email is required
+      </div>
+    </div>
+
+    <!-- Project Start Date -->
+    <div class="form-group">
+      <label for="projectStartDate">Project Start Date</label>
+      <input type="date" id="projectStartDate" formControlName="projectStartDate">
+      <div *ngIf="employeeForm.get('projectStartDate')?.invalid && employeeForm.get('projectStartDate')?.touched" class="error-message">
+        Project start date is required
+      </div>
+    </div>
+
+    <!-- Project End Date -->
+    <div class="form-group">
+      <label for="projectEndDate">Project End Date</label>
+      <input type="date" id="projectEndDate" formControlName="projectEndDate">
+      <div *ngIf="employeeForm.get('projectEndDate')?.invalid && employeeForm.get('projectEndDate')?.touched" class="error-message">
+        Project end date is required
+      </div>
+    </div>
+
+
+    <!-- Department -->
+    <div class="form-group">
+      <label for="department">Department</label>
+      <select id="department" formControlName="department">
+        <option value="">Select department</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+      <div *ngIf="employeeForm.get('department')?.invalid && employeeForm.get('department')?.touched" class="error-message">
+        Department is required
+      </div>
+    </div>
+
+    <!-- Employment Type -->
+    <div class="form-group">
+      <label for="employmentType">Employment Type</label>
+      <select id="employmentType" formControlName="employmentType">
+        <option value="">Select type</option>
+        <option *ngFor="let type of employmentTypes" [value]="type">{{ type }}</option>
+      </select>
+      <div *ngIf="employeeForm.get('employmentType')?.invalid && employeeForm.get('employmentType')?.touched" class="error-message">
+        Employment type is required
+      </div>
+    </div>
+
+
+<div class="fab-form-actions">
+  <button mat-raised-button class="fab-btn fab-reset" (click)="onReset()" matTooltip="Reset">
+    <mat-icon>refresh</mat-icon>
+    Reset
+  </button>
+
+  <button mat-raised-button class="fab-btn fab-save" type="submit" matTooltip="Save">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+
+  <button mat-raised-button class="fab-btn fab-exit" (click)="onExit()" matTooltip="Exit">
+    <mat-icon>exit_to_app</mat-icon>
+    Exit
+  </button>
+</div>
+
+    
+
+
+    
+  </form>
+
+</div>
