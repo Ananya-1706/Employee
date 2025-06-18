@@ -1,0 +1,51 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.name-box {
+  background-color: #f5f5f5;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.name-box input {
+  padding: 10px;
+  width: 250px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.name-box button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.graph-box {
+  .graph-box {
+  width: 95%;
+  max-width: 1200px; /* Increased width */
+  height: 500px; /* Added fixed height for larger graph */
+}
+
+}
