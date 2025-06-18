@@ -1,0 +1,84 @@
+/* Full-page center wrapper */
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+/* Main card styling */
+.rating-card {
+  max-width: 700px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title styling */
+.rating-card h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+/* Table layout */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+/* Table cell spacing and appearance */
+th, td {
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #f9fbfd;
+  border-radius: 8px;
+  color: #34495e;
+}
+
+/* Left-align the criteria column */
+td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+/* Header style */
+th {
+  background-color: transparent;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Stylish radio buttons */
+input[type='radio'] {
+  transform: scale(1.3);
+  cursor: pointer;
+  accent-color: #3f83f8;
+}
+
+/* Submit button */
+button {
+  margin-top: 35px;
+  padding: 12px 30px;
+  background-color: #3f83f8;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #306fd0;
+  transform: scale(1.03);
+}
