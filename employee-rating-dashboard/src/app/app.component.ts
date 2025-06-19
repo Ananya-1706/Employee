@@ -24,25 +24,40 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {}
 
-
-  submitName() {
-    if (!this.employeeName.trim()) return;
-
-    this.http.get<any[]>(`http://localhost:8080/rating/${this.employeeName}`)
-      .subscribe({
-        next: (response) => {
-          console.log('📥 Data fetched from backend:', response);
-
-          this.data = response;
-          this.generateChartData();
-          this.showChart = true;
-        },
-        error: (err) => {
-          console.error('❌ Failed to fetch data:', err);
-          alert('Failed to fetch employee data. Please check the backend.');
-        }
-      });
+  ngOnInit() {
+    this.loadEmployeeNameAndData();
   }
+
+  loadEmployeeNameAndData() {
+    // 🔄 Step 1: Fetch logged-in employee's name from backend
+    this.http.get<{ name: string }>('http://localhost:8080/rating').subscribe({
+      next: (res) => {
+        this.employeeName = res.name;
+        this.loadRatingData();
+      },
+      error: (err) => {
+        console.error('❌ Error fetching user name:', err);
+        alert('Could not load current user. Please check your session or login.');
+      }
+    });
+  }
+
+  loadRatingData() {
+    // 🔄 Step 2: Fetch rating data for the employee
+    this.http.get<any[]>(`http://localhost:8080/rating/${this.employeeName}`).subscribe({
+      next: (response) => {
+        this.data = response;
+        this.generateChartData();
+        this.showChart = true;
+      },
+      error: (err) => {
+        console.error('❌ Failed to fetch rating data:', err);
+        alert('Failed to fetch rating data for employee.');
+      },
+    });
+  }
+
+  
 
   generateChartData() {
     const managerAData = this.data.map(d => d.managerA);
@@ -55,14 +70,14 @@ export class AppComponent {
       {
         name: 'Manager A',
         series: [
-          ...this.data.map(d => ({ name: d.month, value: d.managerA })),
+          ...this.data.map(d => ({ name: d.parameter, value: d.managerA })),
           { name: 'Average', value: avgA }
         ]
       },
       {
         name: 'Manager B',
         series: [
-          ...this.data.map(d => ({ name: d.month, value: d.managerB })),
+          ...this.data.map(d => ({ name: d.parameter, value: d.managerB })),
           { name: 'Average', value: avgB }
         ]
       }
