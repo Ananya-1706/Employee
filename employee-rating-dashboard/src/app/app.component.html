@@ -1,8 +1,6 @@
 <div class="container">
   <div class="name-box">
-    <h2>Employee Rating Dashboard</h2>
-    <input [(ngModel)]="employeeName" placeholder="Enter employee name" />
-    <button (click)="submitName()">Submit</button>
+    <h2>Employee Rating for {{ employeeName}}</h2>
   </div>
 
   <div class="graph-box" *ngIf="showChart">
@@ -17,7 +15,7 @@
       [roundEdges]="true"
       [showXAxisLabel]="true"
       [showYAxisLabel]="true"
-      [xAxisLabel]="'Month'"
+      [xAxisLabel]="'Parameters'"
       [yAxisLabel]="'Rating'">
     </ngx-charts-bar-vertical-2d>
   </div>
