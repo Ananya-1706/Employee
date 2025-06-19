@@ -28,7 +28,7 @@ export class AppComponent {
   submitName() {
     if (!this.employeeName.trim()) return;
 
-    this.http.get<any[]>(`http://localhost:8080/employee-ratings/${this.employeeName}`)
+    this.http.get<any[]>(`http://localhost:8080/rating/${this.employeeName}`)
       .subscribe({
         next: (response) => {
           console.log('📥 Data fetched from backend:', response);
